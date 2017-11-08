@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+  <context id="context1">
+    <commentGenerator>
+		<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+		<property name="suppressAllComments" value="true" />
+	</commentGenerator>
+	 <javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+	</javaTypeResolver>
+	
+	
+	
+    <jdbcConnection connectionURL="jdbc:mysql://127.0.0.1:3306/testdb" driverClass="com.mysql.jdbc.Driver" password="huang1359!@#$" userId="root" />
+   
+    <javaModelGenerator targetPackage="mbPojo" targetProject="Mybatis" />
+    <sqlMapGenerator targetPackage="mbPojo" targetProject="Mybatis" />
+    <javaClientGenerator targetPackage="mbPojo" targetProject="Mybatis" type="XMLMAPPER" />
+    <table tableName="user" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+	<table tableName="role" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+	<table tableName="employee" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+	<table tableName="address" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+	<table tableName="department" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"></table>
+  </context>
+</generatorConfiguration>
+

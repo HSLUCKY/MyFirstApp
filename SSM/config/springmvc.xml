@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc
+						http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+						http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+						http://www.springframework.org/schema/context
+          				http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+
+	
+<!-- <bean name="/sayHello" class="cn.wh.controller.FirstController"></bean>
+<bean name="/keepData" class="cn.wh.controller.SecondController"></bean> -->
+
+<!-- <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean> 
+<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"></bean> -->
+
+<context:component-scan base-package="cn.wh.controller"></context:component-scan>
+
+<mvc:annotation-driven validator="validator"></mvc:annotation-driven>
+<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+<property name="providerClass" value="org.hibernate.validator.HibernateValidator"></property>
+<property name="validationMessageSource" ref="messageSource"></property>
+</bean>
+
+<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	<property name="defaultEncoding" value="UTF-8"></property>
+	<property name="basenames">
+		<list>
+			<value>classpath:validateMessage</value>
+		</list>
+	</property>
+	<property name="cacheSeconds" value="120"></property>
+</bean>
+
+
+<!-- 配置视图解析器 -->
+<bean id="viewResolve" class="org.springframework.web.servlet.view.InternalResourceViewResolver" >
+	<!-- 配置网页的根路径 -->
+	<property name="prefix" value="/WEB-INF/jsp/"></property>
+	<property name="suffix" value=".jsp"></property>
+</bean>
+
+</beans>
